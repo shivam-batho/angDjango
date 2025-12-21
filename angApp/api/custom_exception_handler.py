@@ -11,15 +11,15 @@ def custom_exception_handler(exc, context):
     logger.error("API exception occurred", exc_info=True)
 
     # 🔴 Unhandled exception → 500
-    # if response is None:
-    #     return Response(
-    #         {
-    #             "success": False,
-    #             "code": "SERVER_ERROR",
-    #             "message": "Something went wrong. Please try again later."
-    #         },
-    #         status=status.HTTP_500_INTERNAL_SERVER_ERROR
-    #     )
+    if response is None:
+        return Response(
+            {
+                "success": False,
+                "code": "SERVER_ERROR",
+                "message": "Something went wrong. Please try again later."
+            },
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
 
     # 🔐 Authentication & JWT errors
     if isinstance(exc, AuthenticationFailed):
