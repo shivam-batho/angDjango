@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "54.241.212.110",
-    "localhost"
+    "localhost",
+    "127.0.0.1"
 ]
 
 
@@ -121,7 +122,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
     ),
-       "EXCEPTION_HANDLER": "angApp.api.custom_exception_handler.custom_exception_handler",
+    #    "EXCEPTION_HANDLER": "angApp.api.custom_exception_handler.custom_exception_handler",
 }
 
 SIMPLE_JWT = {
@@ -133,8 +134,6 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
-
-
 
 
 # Internationalization
